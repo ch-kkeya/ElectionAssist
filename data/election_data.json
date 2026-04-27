@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Voter Registration",
+    "description": "Ensure you are registered to vote before the deadline.",
+    "details": "Registering to vote is the foundational step in participating in any democracy. During this phase, election commissions update electoral rolls to include new voters and remove those who are no longer eligible. To register, citizens typically need to fill out a designated form (often available online or at local administrative offices) and provide valid proof of age, citizenship, and current residential address. It is crucial to verify your details on the electoral list well before the registration deadline to avoid last-minute complications on polling day. Some regions also offer special drives or camps to facilitate easy registration for youth and marginalized communities."
+  },
+  {
+    "id": 2,
+    "title": "Nominations",
+    "description": "Candidates officially enter the electoral race.",
+    "details": "The nomination phase marks the official start of the electoral contest. Individuals who wish to run for office must submit formal nomination papers to the returning officer or election commission. This paperwork usually requires the endorsement of a specified number of registered voters from the constituency and a deposit fee. In many jurisdictions, candidates are also legally mandated to disclose their financial assets, liabilities, criminal records, and educational qualifications in an affidavit. This transparency allows voters to make informed decisions. Following submission, nominations are scrutinized for validity, and candidates are given a window to withdraw before the final list of contesting candidates is published."
+  },
+  {
+    "id": 3,
+    "title": "Campaigning",
+    "description": "Candidates share their platforms and engage with voters.",
+    "details": "Campaigning is the most visible phase of the election process, where political parties and independent candidates try to persuade voters to support them. They publish manifestos detailing their policy proposals, hold public rallies, conduct door-to-door canvassing, and participate in televised or community debates. This period is governed by a strict Model Code of Conduct or similar electoral regulations to ensure a level playing field, prevent voter bribery, and maintain public order. As a voter, this is your opportunity to critically evaluate different platforms, ask questions, and determine which candidate aligns best with your priorities for the community and the nation."
+  },
+  {
+    "id": 4,
+    "title": "Polling Day",
+    "description": "Cast your ballot at your designated polling station.",
+    "details": "Election Day is the culmination of the democratic process. Voters visit their pre-assigned polling booths, which are typically set up in schools or public buildings. Upon arrival, polling officials verify your identity against the electoral roll using a recognized government ID (such as a Voter ID card, passport, or driver's license). Voting is conducted via electronic voting machines (EVMs) or paper ballots in a private compartment to ensure the secrecy of your vote. Security personnel are deployed to maintain peace and order, ensuring that citizens can exercise their franchise without fear or intimidation. Special provisions are usually made for senior citizens and persons with disabilities."
+  },
+  {
+    "id": 5,
+    "title": "Results",
+    "description": "Votes are counted and the final winner is declared.",
+    "details": "After polling concludes, the sealed ballot boxes or EVMs are securely transported to designated counting centers under heavy security. On the scheduled counting day, election officials tally the votes in the presence of candidate representatives to maintain transparency. The process begins with counting postal ballots, followed by the general votes. As the counting progresses, preliminary trends are announced, leading up to the final result. The candidate who secures the highest number of valid votes (in a first-past-the-post system) is declared the winner by the returning officer and is issued a certificate of election, paving the way for the formation of the new government."
+  }
+]

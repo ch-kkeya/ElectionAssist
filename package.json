@@ -1,0 +1,27 @@
+{
+  "name": "election-process-assistant",
+  "version": "1.0.0",
+  "description": "Interactive Election Process Assistant",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.50.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ch-kkeya/Hack2skill_PromptWars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ch-kkeya/Hack2skill_PromptWars/issues"
+  },
+  "homepage": "https://github.com/ch-kkeya/Hack2skill_PromptWars#readme"
+}
