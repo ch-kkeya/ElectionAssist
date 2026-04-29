@@ -14,9 +14,40 @@ const PORT = process.env.PORT || 3000;
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Middleware
-app.use(express.static('public'));
 app.use(express.json());
-app.use(helmet()); // Set secure HTTP headers
+
+// Manual CORS Implementation
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    if (req.method === 'OPTIONS') return res.sendStatus(200);
+    next();
+});
+
+// Security: Refined Helmet and CSP
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://cdn.jsdelivr.net", "https://translate.google.com", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+            imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://translate.google.com"],
+            connectSrc: ["'self'", "https://www.google-analytics.com"],
+            frameSrc: ["'self'", "https://translate.google.com"],
+        },
+    },
+}));
+
+// Efficiency: Static file caching
+app.use(express.static('public', {
+    maxAge: '1d',
+    setHeaders: (res, path) => {
+        if (path.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+}));
 
 // Rate limiting for AI endpoint
 const chatLimiter = rateLimit({

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Election Process Assistant</title>
+    <meta name="description" content="Official Election Process Assistant - A comprehensive guide to voting, eligibility, and democratic participation powered by AI.">
+    <title>Election Process Assistant | Your Guide to Voting</title>
     <!-- Tailwind CSS for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Marked.js for markdown parsing -->
@@ -89,10 +90,21 @@
             background: #f1f5f9;
             border-color: #e2e8f0;
         }
-        .lang-item.hidden {
-            display: none;
+        /* Focus styles for accessibility */
+        :focus-visible {
+            outline: 3px solid #3b82f6 !important;
+            outline-offset: 2px !important;
         }
     </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PLACEHOLDER');
+    </script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-inter antialiased min-h-screen flex flex-col">
@@ -101,7 +113,7 @@
     <header class="bg-blue-600 text-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                <svg class="w-8 h-8" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">

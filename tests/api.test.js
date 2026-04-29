@@ -55,4 +55,10 @@ describe('Election Assistant API Endpoints', () => {
         expect(response.statusCode).toBe(400);
         expect(response.body.error).toContain('too long');
     });
+
+    test('Security headers should be present', async () => {
+        const response = await request(app).get('/api/data');
+        expect(response.headers).toHaveProperty('x-content-type-options');
+        expect(response.headers).toHaveProperty('access-control-allow-origin');
+    });
 });

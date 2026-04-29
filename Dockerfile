@@ -8,13 +8,14 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --omit=dev
 
 # Bundle app source
 COPY . .
 
-# Expose port
-EXPOSE 3000
+# Cloud Run requires listening on the PORT environment variable
+ENV PORT 8080
+EXPOSE 8080
 
 # Start command
 CMD [ "npm", "start" ]
