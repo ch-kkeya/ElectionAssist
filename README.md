@@ -19,8 +19,8 @@ An interactive, AI-powered web application designed to guide citizens through th
 
 1.  **Clone the repository** (if you haven't already):
     ```bash
-    git clone https://github.com/ch-kkeya/Hack2skill_PromptWars.git
-    cd Hack2skill_PromptWars
+    git clone https://github.com/ch-kkeya/ElectionAssist.git
+    cd ElectionAssist
     ```
 
 2.  **Install dependencies**:
