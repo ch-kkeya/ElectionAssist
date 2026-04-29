@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
 const { GoogleGenAI } = require('@google/genai');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 dotenv.config();
 
@@ -14,6 +16,14 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
+app.use(helmet()); // Set secure HTTP headers
+
+// Rate limiting for AI endpoint
+const chatLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: { error: "Too many requests from this IP, please try again after 15 minutes." }
+});
 
 // Serve dummy data
 app.get('/api/data', (req, res) => {
@@ -21,7 +31,7 @@ app.get('/api/data', (req, res) => {
 });
 
 // Gemini Chat Endpoint
-app.post('/api/chat', async (req, res) => {
+app.post('/api/chat', chatLimiter, async (req, res) => {
     try {
         if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'YOUR_API_KEY_HERE') {
             return res.status(500).json({ error: "API Key is missing. Please add your actual Gemini API key to the .env file." });
@@ -31,6 +41,11 @@ app.post('/api/chat', async (req, res) => {
 
         if (!message) {
             return res.status(400).json({ error: "Message is required." });
+        }
+
+        // Security: Input length validation
+        if (message.length > 500) {
+            return res.status(400).json({ error: "Message is too long. Please keep it under 500 characters." });
         }
 
         const systemInstruction = `You are a helpful, jargon-free Election Process Assistant. 
@@ -65,6 +80,10 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;

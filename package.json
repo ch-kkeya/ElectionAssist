@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "jest"
   },
   "dependencies": {
     "@google/genai": "^1.50.1",
@@ -23,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/ch-kkeya/Hack2skill_PromptWars/issues"
   },
-  "homepage": "https://github.com/ch-kkeya/Hack2skill_PromptWars#readme"
+  "homepage": "https://github.com/ch-kkeya/Hack2skill_PromptWars#readme",
+  "devDependencies": {
+    "express-rate-limit": "^8.4.1",
+    "helmet": "^8.1.0",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
+  }
 }
