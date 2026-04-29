@@ -30,11 +30,12 @@ app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://cdn.jsdelivr.net", "https://translate.google.com", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-            imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://translate.google.com"],
-            connectSrc: ["'self'", "https://www.google-analytics.com"],
-            frameSrc: ["'self'", "https://translate.google.com"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com", "https://cdn.jsdelivr.net", "https://translate.google.com", "https://translate.googleapis.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://www.gstatic.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://translate.googleapis.com", "https://www.gstatic.com"],
+            imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://translate.google.com", "https://translate.googleapis.com", "https://www.gstatic.com"],
+            connectSrc: ["'self'", "https://www.google-analytics.com", "https://translate.googleapis.com", "https://www.gstatic.com"],
+            frameSrc: ["'self'", "https://translate.google.com", "https://translate.googleapis.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com", "https://www.gstatic.com"],
         },
     },
 }));
