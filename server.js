@@ -42,11 +42,11 @@ app.post('/api/chat', async (req, res) => {
         If you need to explain with an example by taking an existing thing, notify the user that only in example scenario`;
 
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: message,
+            model: 'gemini-3-flash-preview',
+            contents: [{ role: 'user', parts: [{ text: message }] }],
             config: {
                 systemInstruction: systemInstruction,
-                temperature: 0.2, // Low temperature for factual responses
+                temperature: 0.2,
             }
         });
 

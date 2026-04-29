@@ -4,11 +4,8 @@ const { GoogleGenAI } = require('@google/genai');
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 async function run() {
     try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: [{ role: 'user', parts: [{ text: 'hello' }] }],
-        });
-        console.log("Response:", response.text);
+        const response = await ai.models.list();
+        console.log("Response:", JSON.stringify(response, null, 2));
     } catch (error) {
         console.error("ERROR:", error.message);
     }
